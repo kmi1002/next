@@ -1,0 +1,19 @@
+FROM node:lts-alpine
+
+# /app 폴더 생성
+RUN mkdir -p /usr/src/app
+
+# /app 폴더를 WORKDIR로 설정
+WORKDIR /usr/src/app
+
+# 로컬 소스 경로 연결
+ADD . .
+
+# 폴더 구조 확인
+RUN ls -l
+
+# 포트 설정
+EXPOSE 3000
+
+# 실행할 명령어
+ENTRYPOINT ["yarn", "dev"]
